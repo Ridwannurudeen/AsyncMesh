@@ -3,7 +3,6 @@ import torch.distributed as dist
 from torch.optim import SGD
 from .config import DilocoSimulatorConfig
 from .setup import DilocoSetup
-from .util import quantize, dequantize
 import math
 
 class SparseSGD(SGD):
