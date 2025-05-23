@@ -114,9 +114,6 @@ class PPTrainer(DilocoSimulator):
 
             self.local_step += self.num_inner_steps
             dist.barrier()
-
-            if self.local_step > 5000:  # test
-                break
         self._evaluate()
 
     def _setup_model(self):
@@ -358,7 +355,7 @@ if __name__ == "__main__":
     parser.add_argument('--num_inner_steps', type=int, default=1000, help='Number of inner steps')
     parser.add_argument('--adaptive_momentum', type=bool, default=False, help='Use adaptive momentum')
     parser.add_argument('--optimizer', type=str, default="nadamw", help='Optimizer class')
-    parser.add_argument('--backend', type=str, default="gloo", help='Backend')
+    parser.add_argument('--backend', type=str, default="nccl", help='Backend')
     parser.add_argument('--sparta_interval', type=int, default=1, help='Sparta interval')
     parser.add_argument('--method', type=str, default='diloco', help='Method')
     parser.add_argument('--sparta_method', type=str, default='avg', help='Sparta method')

@@ -225,9 +225,6 @@ class PPAsyncTrainer(DilocoSimulator):
 
             self.local_step += self.num_inner_steps
             dist.barrier()
-
-            if self.local_step > 5000:  # test
-                break
         self._evaluate()
 
 

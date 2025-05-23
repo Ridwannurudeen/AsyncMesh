@@ -34,41 +34,41 @@ basecmdstr="python ./examples/pp_diloco_async.py \
     --p_sparta 0.05 --beta1 0.99 --async_sparta_delay 10"
 
 # Ours
-cmdstr="$basecmdstr --sparta_method ema --wandb_name pp-async-Ours &"
+cmdstr="$basecmdstr --sparta_method ema --wandb_name AsyncPP-Ours &"
 echo $cmdstr; eval $cmdstr
 wait
 
-# DP
-cmdstr="$basecmdstr --p_sparta 1.0 --async_sparta_delay 0 --wandb_name pp-async-DP &"
-echo $cmdstr; eval $cmdstr
-wait
+# # DP
+# cmdstr="$basecmdstr --p_sparta 1.0 --async_sparta_delay 0 --wandb_name AsyncPP-DP &"
+# echo $cmdstr; eval $cmdstr
+# wait
 
-# SPARTA
-cmdstr="$basecmdstr --async_sparta_delay 0 --wandb_name pp-async-SPARTA &"
-echo $cmdstr; eval $cmdstr
-wait
+# # SPARTA
+# cmdstr="$basecmdstr --async_sparta_delay 0 --wandb_name AsyncPP-SPARTA &"
+# echo $cmdstr; eval $cmdstr
+# wait
 
-# AsyncSPARTA
-cmdstr="$basecmdstr --wandb_name pp-async-AsyncSPARTA &"
-echo $cmdstr; eval $cmdstr
-wait
+# # AsyncSPARTA
+# cmdstr="$basecmdstr --wandb_name AsyncPP-AsyncSPARTA &"
+# echo $cmdstr; eval $cmdstr
+# wait
 
-# Command string
-basecmdstr="python ./examples/pp_diloco_sync.py \
-    --dataset $DATASET \
-    --num_nodes $NUM_NODES \
-    --devices $DEVICES \
-    --batch_size $BATCH_SIZE \
-    --num_microbatches $NUM_MICROBATCHES \
-    --block_size $BLOCK_SIZE \
-    --n_embd $N_EMBD \
-    --n_layer $N_LAYER \
-    --n_head $N_HEAD \
-    --stages $STAGES \
-    --checkpoint_dir $CHECKPOINT_DIR \
-    --wandb_project $WANDB_PROJECT"
+# # Command string
+# basecmdstr="python ./examples/pp_diloco_sync.py \
+#     --dataset $DATASET \
+#     --num_nodes $NUM_NODES \
+#     --devices $DEVICES \
+#     --batch_size $BATCH_SIZE \
+#     --num_microbatches $NUM_MICROBATCHES \
+#     --block_size $BLOCK_SIZE \
+#     --n_embd $N_EMBD \
+#     --n_layer $N_LAYER \
+#     --n_head $N_HEAD \
+#     --stages $STAGES \
+#     --checkpoint_dir $CHECKPOINT_DIR \
+#     --wandb_project $WANDB_PROJECT"
 
-# FullSync
-cmdstr="$basecmdstr --p_sparta 1.0 --async_sparta_delay 0 --wandb_name FullSync &"
-echo $cmdstr; eval $cmdstr
-wait
+# # FullSync
+# cmdstr="$basecmdstr --p_sparta 1.0 --async_sparta_delay 0 --wandb_name FullSync &"
+# echo $cmdstr; eval $cmdstr
+# wait
