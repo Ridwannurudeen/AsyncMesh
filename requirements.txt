@@ -1,0 +1,15 @@
+torch==2.5.1
+torchvision
+torchtext
+portalocker
+numpy
+pandas
+matplotlib
+scikit-learn
+tqdm
+Pillow
+wandb
+transformers
+datasets
+wandb
+huggingface_hub[hf_transfer]
