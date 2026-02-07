@@ -133,7 +133,7 @@ class DilocoSetup:
         return self.pp_stage
 
     def _cleanup(self):
-        if self.rank == 0:
+        if self.rank == 0 and self.config.wandb_project:
             wandb.finish()
         if self.pbar:
             self.pbar.close()
@@ -248,6 +248,5 @@ class DilocoSetup:
         dist.barrier()
 
     def load_model(self, path):
-        self.master_model.load_state_dict(torch.load(path))
-        for model in self.models:
-            model.load_state_dict(self.master_model.state_dict())
+        self.master_model.load_state_dict(torch.load(path, weights_only=True))
+        self.model.load_state_dict(self.master_model.state_dict())

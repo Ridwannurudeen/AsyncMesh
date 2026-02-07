@@ -11,5 +11,5 @@ Pillow
 wandb
 transformers
 datasets
-wandb
+pyarrow
 huggingface_hub[hf_transfer]
